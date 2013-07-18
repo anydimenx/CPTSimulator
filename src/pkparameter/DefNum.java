@@ -11,8 +11,8 @@ public interface DefNum {
 	
 	//MothTactics parameters
 	public static final double INIT_AANG = Math.PI;//2*Math.PI*Math.random();//Math.PI;
-	public static final double VPARA = 7.8;
-	public static final double AVPARA = 0.4;
+	public static final double VPARA = 26;
+	public static final double AVPARA = 1.0;
 	public static final int STAY = 0;
 	public static final int SURGE = 1;
 	public static final int ZIGZAG = 2;

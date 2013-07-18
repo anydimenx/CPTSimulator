@@ -78,7 +78,7 @@ MouseListener, DefNum {
 		if (e.getSource() == bt1) {
 			timer.start();
 			simFlag = true;
-			agt.setTactics(new MothTactics1());
+			agt.setTactics(new MothTactics4());
 		}
 		if (e.getSource() == bt2) {
 			timer.stop();
