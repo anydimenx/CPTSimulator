@@ -144,7 +144,7 @@ MouseListener, DefNum {
 			pp.setAgt(agt);
 			timer.start();
 			simFlag = true;
-			agt.setTactics(new MothTactics2());
+			agt.setTactics(new MothTactics4());
 		}
 
 		if (simFlag) {

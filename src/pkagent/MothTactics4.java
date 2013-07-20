@@ -36,7 +36,7 @@ public class MothTactics4 implements Tactics, DefNum {
 				cnt = 1;
 				zState = 1;
 				Z_TIME = 10;
-				zDir = 1 - zDir;
+				//zDir = 1 - zDir;
 			}
 			break;
 		case ZIGZAG:
@@ -117,6 +117,7 @@ public class MothTactics4 implements Tactics, DefNum {
 			}
 			break;
 		}
+		//System.out.println(zState);
 	}
 }
 
