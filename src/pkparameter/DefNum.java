@@ -7,12 +7,12 @@ public interface DefNum {
 	public static final int INIT_AY = 0;
 	public static final int CTRLCYCLEMS = 100;	//ms
 	public static final int SEC2CNT = 1000 / CTRLCYCLEMS;
-	public static final double FLAPPING_EFFECT = 1*Math.PI/2;
+	public static final double FLAPPING_EFFECT = 1*Math.PI;
 	
 	//MothTactics parameters
 	public static final double INIT_AANG = Math.PI;//2*Math.PI*Math.random();//Math.PI;
 	public static final double VPARA = 26;
-	public static final double AVPARA = 1.0;
+	public static final double AVPARA = 0.5;
 	public static final int STAY = 0;
 	public static final int SURGE = 1;
 	public static final int ZIGZAG = 2;
@@ -24,7 +24,7 @@ public interface DefNum {
 	public static final int NUM_X = 425;	//picture px
 	public static final int NUM_Y = 130;	//picture px
 	//simulator parameters
-	public static final int SIM_NUM = 1000;
+	public static final int SIM_NUM = 100;
 	public static final int LIM_TIME = 300 * SEC2CNT;
 	
 	//gui parameters

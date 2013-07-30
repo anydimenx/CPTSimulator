@@ -21,7 +21,7 @@ public class ProbabilisticWindTunnel implements Field, DefNum {
 	private ProbabilisticWindTunnel() {
 		try {
 			 reader = new BufferedReader(new
-			 FileReader("mapin/mapforsim.csv"));
+			 FileReader("mapin/mapforsima1.csv"));
 	
 			while (true) {
 				String line = reader.readLine();

@@ -73,10 +73,10 @@ public class MothTactics4 implements Tactics, DefNum {
 			break;
 		case TURN:
 			cnt++;
-			if(cnt > L_TIME){
+			/*if(cnt > L_TIME){
 				agt_.setState(STAY);
 				cnt = 1;
-			}
+			}*/
 			break;
 		}
 

@@ -19,7 +19,8 @@ MouseListener, DefNum {
 	public static int count = 0;
 
 	private Field fld = ProbabilisticWindTunnel.getInstance();
-
+	//private Field fld = DynamicPulse.getInstance();
+	
 	public Agent agt = new Moth(fld);
 
 	TrajPanel tp;
@@ -96,7 +97,7 @@ MouseListener, DefNum {
 				count = 0;
 				fld.init();
 				agt = new Moth(fld);
-				agt.setTactics(new MothTactics1());
+				agt.setTactics(new MothTactics4());
 				// output file
 				of.mkfile("data" + i + ".csv");
 				of.writeData(0);
@@ -158,7 +159,7 @@ MouseListener, DefNum {
 		}
 		if(e.getSource() == bt5){
 			
-		    JFileChooser filechooser = new JFileChooser("c:\\workspace_eclipse\\CPTSimulator2.0\\data");
+		    JFileChooser filechooser = new JFileChooser("C:\\Users\\yosuke\\git\\CPTSimulator\\data");
 		    filechooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
 		    int selected = filechooser.showOpenDialog(this);

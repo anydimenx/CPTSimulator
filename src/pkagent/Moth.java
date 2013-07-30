@@ -46,7 +46,7 @@ public class Moth implements Agent, DefNum {
 			bm.setHitXY(gp);
 			//System.out.println(bm.getHitXY());
 		}
-		System.out.println(angle);
+		//System.out.println(angle);
 		
 		//update position & angle
 		angle += angvel * CTRLCYCLEMS / 1000;
