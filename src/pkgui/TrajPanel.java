@@ -47,17 +47,24 @@ public class TrajPanel extends JPanel implements DefNum {
 			for (int x = 0; x < 600; x++) {
 				if(CPTSimulator.count > 1){
 					if (fld.getRate(x, y) > 0) {
-						g2.setColor(new Color(239, 117, 188, 200));
+						//g2.setColor(new Color(239, 117, 188, 200));
+						g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
+						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
+					}
+					/*if (fld.getRate(x, y) > 0) {
+						//g2.setColor(new Color(239, 117, 188, 200));
+						g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
 						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
 					}
 					if (fld.getRate(x, y) > 0.2) {
-						g2.setColor(new Color(245, 100, 100, 150));
+						//g2.setColor(new Color(245, 100, 100, 150));
+						g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
 						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
 					}
 					if (fld.getRate(x, y) > 0.4) {
-						g2.setColor(new Color(255, 0, 0, 255));
+						g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
 						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
-					}
+					}*/
 				}
 				x += 20;
 			}
@@ -125,17 +132,33 @@ public class TrajPanel extends JPanel implements DefNum {
 					mt.toScreenY((int) agt.getGy()), 15, g2);
 		}
 
-		// 左右センサと重心の座標
+		// 重心の座標
 		g2.setColor(Color.BLACK);
 		mt.fillCircle(mt.toScreenX((int) agt.getGx()),
 				mt.toScreenY((int) agt.getGy()), 2, g2);
+		// 方向状態
+		if (agt.getOdorDir() == LEFT) {
+			if(agt.isStimuL()){
+				g2.setColor(Color.RED);
+				mt.fillCircle(mt.toScreenX((int) agt.getGx()),
+					mt.toScreenY((int) agt.getGy()), 5, g2);
+			}
+		}
+		if (agt.getOdorDir() == RIGHT) {
+			if(agt.isStimuR()){
+				g2.setColor(Color.GREEN);
+				mt.fillCircle(mt.toScreenX((int) agt.getGx()),
+					mt.toScreenY((int) agt.getGy()), 5, g2);
+			}
+		}
+		
+		//左右センサ座標
 		g2.setColor(Color.RED);
 		mt.fillCircle(mt.toScreenX((int) agt.getspLx()),
 				mt.toScreenY((int) agt.getspLy()), 2, g2);
 		g2.setColor(Color.GREEN);
 		mt.fillCircle(mt.toScreenX((int) agt.getspRx()),
 				mt.toScreenY((int) agt.getspRy()), 2, g2);
-
 		// 左右センサ検知状態
 		if (agt.isStimuL()) {
 			g2.setColor(new Color(255, 242, 55, 200));

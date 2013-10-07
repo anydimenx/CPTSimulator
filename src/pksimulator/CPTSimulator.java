@@ -80,7 +80,7 @@ MouseListener, DefNum {
 		if (e.getSource() == bt1) {
 			timer.start();
 			simFlag = true;
-			agt.setTactics(new MothTactics4());
+			agt.setTactics(new MothTactics1());
 		}
 		if (e.getSource() == bt2) {
 			timer.stop();
@@ -98,7 +98,7 @@ MouseListener, DefNum {
 				count = 0;
 				fld.init();
 				agt = new Moth(fld);
-				agt.setTactics(new MothTactics4());
+				agt.setTactics(new MothTactics1());
 				// output file
 				of.mkfile("data" + i + ".csv");
 				of.writeData(0);

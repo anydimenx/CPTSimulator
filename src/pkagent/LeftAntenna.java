@@ -36,7 +36,12 @@ public class LeftAntenna implements OdorSensor {
 		if (rand <= fd.getRate(spL.x, spL.y)) {
 			stimuL = true;
 		}
+		System.out.print(fd.getRate(spL.x, spL.y) + " ");
 		return stimuL;
+	}
+	
+	public double getPotential(){
+		return -1;
 	}
 	
 	public Point2D.Double getap() {

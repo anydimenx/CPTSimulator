@@ -31,6 +31,8 @@ public class WindTunnel2 implements Field, DefNum {
 	// 1hz plume
 	public double getRate(double x_, double y_) {
 		int tmpt = CPTSimulator.count % 10;
+		//double sig = 5.0 / 60 * x_;
+		double sig = 25.0;
 		if(tmpt == 0){
 			tmpt = 0;
 		}
@@ -40,7 +42,9 @@ public class WindTunnel2 implements Field, DefNum {
 		
 		if(pcx - pwidth/2 <= x_ && pcx + pwidth/2 >= x_
 				&& 5.0/60*x_ >= y_ && -5.0/60*x_ <= y_){
-			return 1;
+			return (1.0 - 0.2 / 600 * x_) * Math.exp(-y_ * y_ / 2 / sig / sig);
+				//* 1 / Math.sqrt(2 * Math.PI) / sig * Math.exp(-y_ * y_ / 2 / sig / sig);
+			//return (1.0 - 0.9 / 600 * x_);
 		}else{
 			return 0;
 		}		

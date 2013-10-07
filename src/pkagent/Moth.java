@@ -32,8 +32,8 @@ public class Moth implements Agent, DefNum {
 		bm = new BrainMap();
 		gp = new Point2D.Double(INIT_AX, INIT_AY);
 		angle = INIT_AANG;
-		antennaL = new LeftAntenna(fd, gp, angle);
-		antennaR = new RightAntenna(fd, gp, angle);
+		antennaL = new LeftAntennaWithTh(fd, gp, angle);
+		antennaR = new RightAntennaWithTh(fd, gp, angle);
 //		antennaL = new LeftAntennaWithFE(fd, gp, angle);
 //		antennaR = new RightAntennaWithFE(fd, gp, angle);
 	}
@@ -72,13 +72,23 @@ public class Moth implements Agent, DefNum {
 	public boolean isSense() {
 		double rand = Math.random();
 		stimuL = antennaL.isSense(rand);
-		stimuR = antennaR.isSense(rand);	
+		stimuR = antennaR.isSense(rand);
 		return (stimuL | stimuR) & inArea();
 	}
 
 	public int getOdorDir() {
-
-		if (stimuL && stimuR) {
+		double potL = antennaL.getPotential();
+		double potR = antennaR.getPotential();
+	
+		if(potL > potR){
+			return LEFT;
+		}else if(potR > potL){
+			return RIGHT;
+		}else{
+			return (int) (Math.random() * 10) % 2;
+		}
+		
+/*		if (stimuL && stimuR) {
 			int ran = (int) (Math.random() * 10) % 2;
 			return ran;
 		} else if (stimuL) {
@@ -88,7 +98,7 @@ public class Moth implements Agent, DefNum {
 		} else {
 			int ran = (int) (Math.random() * 10) % 2;
 			return ran;
-		}
+		}*/
 	}
 	
 	public boolean isStimuL() {

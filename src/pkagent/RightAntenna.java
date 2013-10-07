@@ -38,10 +38,15 @@ public class RightAntenna implements OdorSensor {
 		if (rand <= fd.getRate(spR.x, spR.y)) {
 			stimuR = true;
 		}
+		System.out.println(fd.getRate(spR.x, spR.y));
 		return stimuR;
 	}
 	
-	public Point2D.Double getap() {
+	public double getPotential(){
+		return -1;
+	}
+
+		public Point2D.Double getap() {
 		return spR;
 	}
 }
