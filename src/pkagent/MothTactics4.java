@@ -121,10 +121,10 @@ public class MothTactics4 implements Tactics, DefNum {
 		case TURN:
 			switch (zDir) {
 			case LEFT:
-				agt_.setPara(S_VEL, ZT_ANGVEL);
+				agt_.setPara(0, ZT_ANGVEL);
 				break;
 			case RIGHT:
-				agt_.setPara(S_VEL, -ZT_ANGVEL);
+				agt_.setPara(0, -ZT_ANGVEL);
 				break;
 			}
 			break;

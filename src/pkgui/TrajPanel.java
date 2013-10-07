@@ -11,6 +11,7 @@ import pkfield.Field;
 import pkfield.DynamicPulseTurbulent;
 import pkfield.ProbabilisticInfo;
 import pkfield.ProbabilisticWindTunnel;
+import pkfield.WindTunnel2;
 import pkparameter.DefNum;
 import pksimulator.CPTSimulator;
 
@@ -28,7 +29,7 @@ public class TrajPanel extends JPanel implements DefNum {
 		//fld = DynamicPulseTurbulent.getInstance();
 		//fld = DynamicPulse.getInstance();
 		//fld = ProbabilisticInfo.getInstance();
-		fld = ProbabilisticWindTunnel.getInstance();
+		fld = WindTunnel2.getInstance();
 		agt = agt_;
 		sc = new MyTransform();
 	}
@@ -58,9 +59,9 @@ public class TrajPanel extends JPanel implements DefNum {
 						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
 					}
 				}
-				x += 19;
+				x += 20;
 			}
-			y += 19;
+			//y += 1;
 		}
 	
 		double w, h, ux, uy;
@@ -87,6 +88,11 @@ public class TrajPanel extends JPanel implements DefNum {
 				// g.drawString(""+j,(int)(x-ux/2),(int)y);
 			}
 		}
+		
+		g2.drawLine(mt.toScreenX(0), mt.toScreenY(0), mt.toScreenX(600), mt.toScreenY(50));
+		g2.drawLine(mt.toScreenX(0), mt.toScreenY(0), mt.toScreenX(600), mt.toScreenY(-50));
+		
+		
 		
 		//agent trajectory
 		/*g2.setColor(new Color(255, 100, 100, 100));

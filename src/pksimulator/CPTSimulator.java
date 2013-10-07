@@ -18,8 +18,9 @@ MouseListener, DefNum {
 	
 	public static int count = 0;
 
-	private Field fld = ProbabilisticWindTunnel.getInstance();
+	//private Field fld = ProbabilisticWindTunnel.getInstance();
 	//private Field fld = DynamicPulse.getInstance();
+	private Field fld = WindTunnel2.getInstance();
 	
 	public Agent agt = new Moth(fld);
 
