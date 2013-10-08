@@ -13,6 +13,9 @@ public class LeftAntennaWithTh implements OdorSensor {
 	private boolean stimuL = false;
 	private Field fd;
 	private double potential = 0;
+	private double volt = 0;
+	private double C = 0.1;
+	private double R = 10;
 	
 	public LeftAntennaWithTh(Field fd_, Point2D.Double gp_, double angle_){
 		fd = fd_;
@@ -41,6 +44,16 @@ public class LeftAntennaWithTh implements OdorSensor {
 		System.out.print(fd.getRate(spL.x, spL.y) + " ");
 		return stimuL;
 	}
+	
+	public double getVolt(){
+		if(stimuL){
+			volt = potential * (1 - Math.exp(-1/C/R));
+		}else{
+			volt = potential * Math.exp(-1/C/R);
+		}
+		return volt;
+	}
+	
 	
 	public double getPotential(){
 		return potential;
