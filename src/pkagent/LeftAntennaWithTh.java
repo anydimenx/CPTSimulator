@@ -16,6 +16,7 @@ public class LeftAntennaWithTh implements OdorSensor {
 	private double volt = 0;
 	private double C = 0.1;
 	private double R = 10;
+	private double tau = 1;
 	
 	public LeftAntennaWithTh(Field fd_, Point2D.Double gp_, double angle_){
 		fd = fd_;
