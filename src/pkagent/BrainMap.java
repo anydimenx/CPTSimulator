@@ -163,6 +163,46 @@ public class BrainMap implements DefNum {
 		
 		//System.out.println(CPTSimulator.count);
 		
+		double sum = 0;		
+		for (int j = 0; j < MAPY; j++) {
+			for (int i = 0; i < MAPX; i++) {
+				mapXY[i][j] = n_mapXY[i][j];
+				sum += mapXY[i][j];
+				//System.out.print(mapXY[i][j] + ",");
+			}
+			//System.out.println();
+		}
+		
+		double S = 0;
+		for (int j = 0; j < MAPY; j++) {
+			for (int i = 0; i < MAPX; i++) {
+				mapXY[i][j] = n_mapXY[i][j] / sum;
+				if(mapXY[i][j]>0){
+					S += -mapXY[i][j] * Math.log(mapXY[i][j]) / Math.log(2);
+				}
+				//System.out.print(mapXY[i][j] + ",");
+			}
+			//System.out.println();
+		}
+		//System.out.println(CPTSimulator.count * 0.1 + "," + S + "," + BooleanUtils.toInteger(is) + "," + agt.getAng());
+		
+		//if(CPTSimulator.count==191){
+		try {
+			File file = new File("data/map_" + CPTSimulator.count +".csv");
+			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+			for (int j = MAPY-1; j >= 0; j--) {
+				for (int i = 0; i < MAPX; i++) {
+					pw.print(mapXY[i][j] + ",");
+				}
+				pw.println();
+			}
+			pw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//}
+		
+		
 		if (is) {
 			for (int j = 0; j < MAPY; j++) {
 				for (int i = 0; i < MAPX; i++) {
@@ -188,45 +228,7 @@ public class BrainMap implements DefNum {
 			}
 		}
 
-		double sum = 0;
-		
-		for (int j = 0; j < MAPY; j++) {
-			for (int i = 0; i < MAPX; i++) {
-				mapXY[i][j] = n_mapXY[i][j];
-				sum += mapXY[i][j];
-				//System.out.print(mapXY[i][j] + ",");
-			}
-			//System.out.println();
-		}
-		
-		double S = 0;
-		for (int j = 0; j < MAPY; j++) {
-			for (int i = 0; i < MAPX; i++) {
-				mapXY[i][j] = n_mapXY[i][j] / sum;
-				if(mapXY[i][j]>0){
-					S += -mapXY[i][j] * Math.log(mapXY[i][j]) / Math.log(2);
-				}
-				//System.out.print(mapXY[i][j] + ",");
-			}
-			//System.out.println();
-		}
-		//System.out.println(CPTSimulator.count * 0.1 + "," + S + "," + BooleanUtils.toInteger(is) + "," + agt.getAng());
-		
-		if(CPTSimulator.count==191){
-		try {
-			File file = new File("data/map.csv");
-			PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(file)));
-			for (int j = MAPY-1; j >= 0; j--) {
-				for (int i = 0; i < MAPX; i++) {
-					pw.print(mapXY[i][j] + ",");
-				}
-				pw.println();
-			}
-			pw.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		}
+
 	}
 
 }
