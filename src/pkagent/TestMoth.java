@@ -17,7 +17,7 @@ public class TestMoth implements Agent, DefNum {
 	public static final int ZIGZAG = 2;
 	public static final int TURN = 3;
 	public int myState = STAY;
-	public BrainMap bm = new BrainMap();
+	public BrainMap bm = new BrainMap(this);
 	
 	private double k = 5; // mm
 	private double f = 10; //mm

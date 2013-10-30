@@ -42,7 +42,7 @@ public class LeftAntennaWithTh implements OdorSensor {
 		if (potential > 0.3) {
 			stimuL = true;
 		}
-		System.out.print(fd.getRate(spL.x, spL.y) + " ");
+		//System.out.print(fd.getRate(spL.x, spL.y) + " ");
 		return stimuL;
 	}
 	
