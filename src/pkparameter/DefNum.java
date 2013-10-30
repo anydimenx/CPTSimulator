@@ -10,7 +10,7 @@ public interface DefNum {
 	public static final double FLAPPING_EFFECT = 1*Math.PI/2;
 	
 	//MothTactics parameters
-	public static final double INIT_AANG = Math.PI/2;//2*Math.PI*Math.random();//Math.PI;
+	public static final double INIT_AANG = Math.PI;//2*Math.PI*Math.random();//Math.PI;
 	public static final double VPARA = 26;
 	public static final double AVPARA = 0.5;
 	public static final int STAY = 0;
