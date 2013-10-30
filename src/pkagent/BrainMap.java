@@ -210,7 +210,7 @@ public class BrainMap implements DefNum {
 			}
 			//System.out.println();
 		}
-		System.out.println(CPTSimulator.count * 0.1 + "," + S + "," + BooleanUtils.toInteger(is) + "," + agt.getAng());
+		//System.out.println(CPTSimulator.count * 0.1 + "," + S + "," + BooleanUtils.toInteger(is) + "," + agt.getAng());
 		
 		if(CPTSimulator.count==191){
 		try {

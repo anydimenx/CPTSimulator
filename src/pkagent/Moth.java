@@ -34,8 +34,9 @@ public class Moth implements Agent, DefNum {
 		angle = INIT_AANG;
 		//antennaL = new LeftAntennaWithTh(fd, gp, angle);
 		//antennaR = new RightAntennaWithTh(fd, gp, angle);
-		antennaL = new LeftAntenna(fd, gp, angle);
-		antennaR = new RightAntenna(fd, gp, angle);
+		antennaL = new LeftAntennaBasedOnModel(fd, gp, angle);
+		antennaR = new RightAntennaBasedOnModel(fd, gp, angle);
+		
 	}
 
 	public void move() {
