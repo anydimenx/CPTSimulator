@@ -7,7 +7,7 @@ public interface DefNum {
 	public static final int INIT_AY = 0;
 	public static final int CTRLCYCLEMS = 100;	//ms
 	public static final int SEC2CNT = 1000 / CTRLCYCLEMS;
-	public static final double FLAPPING_EFFECT = 1*Math.PI/2;
+	public static final double FLAPPING_EFFECT = Math.PI/2;
 	
 	//MothTactics parameters
 	public static final double INIT_AANG = Math.PI;//2*Math.PI*Math.random();//Math.PI;

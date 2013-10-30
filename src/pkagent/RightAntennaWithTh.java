@@ -39,7 +39,7 @@ public class RightAntennaWithTh implements OdorSensor {
 		if (potential > 0.3) {
 			stimuR = true;
 		}
-		System.out.println(fd.getRate(spR.x, spR.y));
+		//System.out.println(fd.getRate(spR.x, spR.y));
 		return stimuR;
 	}
 	

@@ -29,7 +29,8 @@ public class TrajPanel extends JPanel implements DefNum {
 		//fld = DynamicPulseTurbulent.getInstance();
 		//fld = DynamicPulse.getInstance();
 		//fld = ProbabilisticInfo.getInstance();
-		fld = WindTunnel2.getInstance();
+		fld = ProbabilisticWindTunnel.getInstance();
+		//fld = WindTunnel2.getInstance();
 		agt = agt_;
 		sc = new MyTransform();
 	}
@@ -46,25 +47,26 @@ public class TrajPanel extends JPanel implements DefNum {
 		for (int y = -99; y < 100; y++) {
 			for (int x = 0; x < 600; x++) {
 				if(CPTSimulator.count > 1){
-					if (fld.getRate(x, y) > 0) {
-						//g2.setColor(new Color(239, 117, 188, 200));
-						g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
-						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
-					}
 					/*if (fld.getRate(x, y) > 0) {
 						//g2.setColor(new Color(239, 117, 188, 200));
 						g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
 						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
+					}*/
+					if (fld.getRate(x, y) > 0) {
+						g2.setColor(new Color(239, 117, 188, 200));
+						//g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
+						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
 					}
 					if (fld.getRate(x, y) > 0.2) {
-						//g2.setColor(new Color(245, 100, 100, 150));
-						g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
+						g2.setColor(new Color(245, 100, 100, 150));
+						//g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
 						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
 					}
 					if (fld.getRate(x, y) > 0.4) {
-						g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
+						g2.setColor(new Color(245, 150, 150, 150));
+						//g2.setColor(new Color((int)(255 * fld.getRate(x, y)), 0, 0, 255));
 						mt.fillCircle(mt.toScreenX(x), mt.toScreenY(y), 5, g2);
-					}*/
+					}
 				}
 				x += 20;
 			}

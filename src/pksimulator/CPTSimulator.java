@@ -18,9 +18,9 @@ MouseListener, DefNum {
 	
 	public static int count = 0;
 
-	//private Field fld = ProbabilisticWindTunnel.getInstance();
+	private Field fld = ProbabilisticWindTunnel.getInstance();
 	//private Field fld = DynamicPulse.getInstance();
-	private Field fld = WindTunnel2.getInstance();
+	//private Field fld = WindTunnel2.getInstance();
 	
 	public Agent agt = new Moth(fld);
 
@@ -34,6 +34,7 @@ MouseListener, DefNum {
 	private JButton bt3 = new JButton("Run simulations");
 	private JButton bt4 = new JButton("Test tactics");
 	private JButton bt5 = new JButton("Output Graph");
+	private JButton bt6 = new JButton("Exp Robot");
 	
 	private Timer timer;
 	private boolean simFlag = false;
@@ -59,6 +60,7 @@ MouseListener, DefNum {
 		addButton(bt3, bp, this);
 		addButton(bt4, bp, this);
 		addButton(bt5, bp, this);
+		addButton(bt6, bp, this);
 		addMouseListener(this);
 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -170,6 +172,10 @@ MouseListener, DefNum {
 			  OutputGraph og = new OutputGraph(file.getAbsolutePath());
 			  og.plotAll();
 		    }
+		}
+		if(e.getSource() == bt6){
+			Agent er = new ExpRobo(fld);
+			er.move();
 		}
 		
 	}

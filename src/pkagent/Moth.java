@@ -29,13 +29,14 @@ public class Moth implements Agent, DefNum {
 	public Moth(Field fd_) {
 		fd = fd_;
 		myState = STAY;
-		bm = new BrainMap();
+		bm = new BrainMap(this);
 		gp = new Point2D.Double(INIT_AX, INIT_AY);
 		angle = INIT_AANG;
-		antennaL = new LeftAntennaWithTh(fd, gp, angle);
-		antennaR = new RightAntennaWithTh(fd, gp, angle);
-//		antennaL = new LeftAntennaWithFE(fd, gp, angle);
-//		antennaR = new RightAntennaWithFE(fd, gp, angle);
+		//antennaL = new LeftAntennaWithTh(fd, gp, angle);
+		//antennaR = new RightAntennaWithTh(fd, gp, angle);
+		antennaL = new LeftAntennaBasedOnModel(fd, gp, angle);
+		antennaR = new RightAntennaBasedOnModel(fd, gp, angle);
+		
 	}
 
 	public void move() {
@@ -57,6 +58,7 @@ public class Moth implements Agent, DefNum {
 		bm.setGridXY(gp);
 		bm.setXY(gp);
 		bm.hitsCnt(is);
+		bm.calcS(is);
 	}
 
 	//flapping effect
@@ -77,6 +79,7 @@ public class Moth implements Agent, DefNum {
 	}
 
 	public int getOdorDir() {
+		/*
 		double potL = antennaL.getPotential();
 		double potR = antennaR.getPotential();
 	
@@ -87,8 +90,9 @@ public class Moth implements Agent, DefNum {
 		}else{
 			return (int) (Math.random() * 10) % 2;
 		}
+		*/
 		
-/*		if (stimuL && stimuR) {
+		if (stimuL && stimuR) {
 			int ran = (int) (Math.random() * 10) % 2;
 			return ran;
 		} else if (stimuL) {
@@ -98,7 +102,7 @@ public class Moth implements Agent, DefNum {
 		} else {
 			int ran = (int) (Math.random() * 10) % 2;
 			return ran;
-		}*/
+		}
 	}
 	
 	public boolean isStimuL() {
