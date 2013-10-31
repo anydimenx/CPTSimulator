@@ -41,7 +41,7 @@ public class ExpRobo implements Agent, DefNum {
 		gp = new Point2D.Double(INIT_AX, INIT_AY);
 
 		try {
-			reader = new BufferedReader(new FileReader("exp/a3.csv"));
+			reader = new BufferedReader(new FileReader("exp/a2.csv"));
 			
 			while(true) {
 				try{
