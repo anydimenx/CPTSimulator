@@ -179,11 +179,14 @@ public class BrainMap implements DefNum {
 		} else {
 			for (int j = 0; j < MAPY; j++) {
 				for (int i = 0; i < MAPX; i++) {
-					if(ax-i>=0 && Math.abs(ay-j) < 100){
+					//刺激受けないときマップ維持
+					n_mapXY[i][j] = mapXY[i][j];
+					//刺激受けないときもマップ更新
+					/*if(ax-i>=0 && Math.abs(ay-j) < 100){
 						n_mapXY[i][j] = (1.0 - funcL[ax-i][(ay-j)+99]) * mapXY[i][j];
 					}else{
 						n_mapXY[i][j] = mapXY[i][j];
-					}
+					}*/
 				}
 			}
 		}
